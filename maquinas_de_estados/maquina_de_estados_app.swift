@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct maquinas_de_estadosApp: App {
+    @State var control: ControladorGeneral = ControladorGeneral()
+    
     var body: some Scene {
         WindowGroup {
-            
+            PantallaInicial().environment(control)
         }
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PantallaInicial: View {
-    @State var  controlador_tamagotchi: ControladorGeneral = ControladorGeneral()
+    @Environment(ControladorGeneral.self) var  controlador_tamagotchi
     
     @State var nombre_nuevo = ""
     
@@ -17,10 +17,7 @@ struct PantallaInicial: View {
     var body: some View {
         //matarlo
         //revivirlo
-        Button("revivir"){
-            controlador_tamagotchi.revivirlo()
-            vivo = "si"
-        }
+       
         Text("Lo revivimos: \(vivo)")
         /*Button("matar"){
             controlador_tamagotchi.matarlo()
@@ -30,6 +27,13 @@ struct PantallaInicial: View {
         Text("Su nombre: \(controlador_tamagotchi.tamagotchi.nombre)")
         //Text("Esta vivo: \(controlador_tamagotchi.tamagotchi.esta_vivo)")
         
+        Text("Hambre Actual: \(controlador_tamagotchi.tamagotchi.hambre)")
+        Text("Cansancio: \(controlador_tamagotchi.tamagotchi.cansancio)")
+        Text("Limpio: \(controlador_tamagotchi.tamagotchi.limpio)")
+        Text("Edad: \(controlador_tamagotchi.tamagotchi.edad)")
+        
+        MascotaEstado()
+
         if(controlador_tamagotchi.tamagotchi.esta_vivo){
             Text("Tu tamagotchi esta vivo")
         }else {
@@ -51,12 +55,21 @@ struct PantallaInicial: View {
             Spacer()
             
             Button("Resuitar") {
-                
+                controlador_tamagotchi.revivirlo()
+                vivo = "si"
             }
+        }
+        
+        Button("Actualizar tamagotchi"){
+            controlador_tamagotchi.actualizar_medidores()
+        }
+        
+        Button("Alimentar"){
+            controlador_tamagotchi.alimentar()
         }
     }
 }
 
 #Preview {
-    PantallaInicial()
+    PantallaInicial().environment(ControladorGeneral())
 }
