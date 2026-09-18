@@ -17,9 +17,6 @@ struct MascotaEstado: View {
             case .Hambriento:
                 Rectangle().foregroundStyle(Color.orange)
             
-            case.Inanicion:
-                Rectangle().foregroundStyle(Color.red)
-            
             case .Muerto:
                 Text("ESTA MUERTOOOOO").fontWidth(.expanded).fontWeight(.heavy)
             

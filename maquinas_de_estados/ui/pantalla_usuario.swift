@@ -29,7 +29,6 @@ struct PantallaInicial: View {
         
         Text("Hambre Actual: \(controlador_tamagotchi.tamagotchi.hambre)")
         Text("Cansancio: \(controlador_tamagotchi.tamagotchi.cansancio)")
-        Text("Limpio: \(controlador_tamagotchi.tamagotchi.limpio)")
         Text("Edad: \(controlador_tamagotchi.tamagotchi.edad)")
         
         MascotaEstado()
@@ -66,6 +65,10 @@ struct PantallaInicial: View {
         
         Button("Alimentar"){
             controlador_tamagotchi.alimentar()
+        }
+        
+        Button("Darle un sape"){
+            let comando = ComandosTamagotchi.darle_un_sape
         }
     }
 }

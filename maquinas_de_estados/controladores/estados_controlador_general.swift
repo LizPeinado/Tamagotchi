@@ -9,12 +9,9 @@
 enum EstadosTamagotchi{
     case Feliz
     case Neutro
-    case Triste
     case Enojado
-    case Hambriento
     case Comiendo
-    case Inanicion
-    case Adormilado
-    case Durmiendo
+    case Dormido
     case Muerto
+    case Paseando
 }

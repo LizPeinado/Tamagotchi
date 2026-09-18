@@ -9,8 +9,9 @@ struct Tamagotchi{
     var nombre: String
     var esta_vivo: Bool
     var edad: Int
+    
+    
     var hambre: Int
     var cansancio: Int
-    var limpio: Int
     var aburrido: Int
 }

@@ -17,7 +17,7 @@ class ControladorGeneral{
             self.tamagotchi = tamagotchi_a_cargar
         }
         else{
-            self.tamagotchi = Tamagotchi(nombre: "Fih", esta_vivo: true, edad: 0, hambre: 150, cansancio: 150, limpio: 50, aburrido: 50)
+            self.tamagotchi = Tamagotchi(nombre: "Fih", esta_vivo: true, edad: 0, hambre: 0, cansancio: 0, aburrido: 0)
         }
     }
     
@@ -37,51 +37,48 @@ class ControladorGeneral{
         return false
     }
     
-    func revivirlo() -> Bool{
+    /*
+     
+     func revivirlo() -> Bool{
         if tamagotchi.esta_vivo == false{
             tamagotchi.esta_vivo = true
             return true
         }
         return false
     }
+     
+    */
     
     func actualizar_medidores() ->  Bool{
         tamagotchi.hambre += 1
         tamagotchi.aburrido += 1
         tamagotchi.cansancio += 1
         
-        tamagotchi.limpio -= 1
-        
         actualizar_estado()
-    
         return true
-        
     }
     
     private func actualizar_estado() {
         switch(estado){
+            case.Feliz:
+                if tamagotchi.hambre == 0 || tamagotchi.cansancio == 0 || tamagotchi.aburrido == 40 {
+                    estado = .Feliz
+                }
             case .Neutro:
-                if tamagotchi.hambre > 60 {
-                    estado = .Hambriento
+                if tamagotchi.hambre > 40 || tamagotchi.cansancio > 40 || tamagotchi.aburrido > 40 {
+                    estado = .Neutro
                 }
-                else if tamagotchi.cansancio > 80 {
-                    estado = .Adormilado
-                }
-            
-
-            case .Hambriento:
+            case .Comiendo:
                 if tamagotchi.hambre > 80 {
-                    estado = .Inanicion
+                    estado = .Enojado
                 }
                 else if tamagotchi.hambre < 40{
                     estado = .Neutro
                 }
-            
-            case .Inanicion:
-                if tamagotchi.hambre > 100 {
-                    estado = .Muerto
+            case .Enojado:
+                if tamagotchi.hambre > 55 || tamagotchi.cansancio > 55 || tamagotchi.aburrido > 55 {
+                    estado = .Enojado
                 }
-            
             default :
                 return
         }
@@ -95,4 +92,34 @@ class ControladorGeneral{
         
         return false
     }
+    
+    //---------------------------------------------------------------------------------------------------------
+    func dormir() -> Bool{
+        if tamagotchi.esta_vivo{
+                return true
+        }
+        return false
+    }
+    
+    func feliz() -> Bool{
+        if tamagotchi.esta_vivo{
+                return true
+        }
+        return false
+    }
+    
+    func enojado() -> Bool{
+        if tamagotchi.esta_vivo{
+                return true
+        }
+        return false
+    }
+    
+    func entretener() -> Bool{
+        if tamagotchi.esta_vivo{
+                return true
+        }
+        return false
+    }
+    //---------------------------------------------------------------------------------------------------------
 }
