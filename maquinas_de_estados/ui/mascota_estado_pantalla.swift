@@ -8,17 +8,41 @@ import SwiftUI
 
 struct MascotaEstado: View {
     @Environment(ControladorGeneral.self) var mascota
-    
+    enum EstadosTamagotchi{
+        case Feliz
+        case Neutro
+        case Aburrido
+        case Enojado
+        case Comiendo
+        case Dormido
+        case Muerto
+        case Paseando
+    }
     var body: some View {
         switch mascota.estado {
             case .Neutro:
                 Rectangle().foregroundStyle(Color.gray)
             
-            case .Hambriento:
+            case .Feliz:
+                Rectangle().foregroundStyle(Color.green)
+            
+            case .Aburrido:
+                    Rectangle().foregroundStyle(Color.purple)
+            
+            case .Enojado:
+                Rectangle().foregroundStyle(Color.red)
+            
+            case .Comiendo:
                 Rectangle().foregroundStyle(Color.orange)
             
+            case .Dormido:
+                Rectangle().foregroundStyle(Color.black)
+
             case .Muerto:
                 Text("ESTA MUERTOOOOO").fontWidth(.expanded).fontWeight(.heavy)
+            
+        case .Paseando:
+            Rectangle().foregroundStyle(Color.brown)
             
             default :
                 Text("Nose")

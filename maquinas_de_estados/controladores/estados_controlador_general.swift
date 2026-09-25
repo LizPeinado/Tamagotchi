@@ -9,6 +9,7 @@
 enum EstadosTamagotchi{
     case Feliz
     case Neutro
+    case Aburrido
     case Enojado
     case Comiendo
     case Dormido

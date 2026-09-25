@@ -12,7 +12,7 @@ import ARKit
 
 enum ComandosTamagotchi: Comando {
     case darle_un_dulce
-    case darle_un_sape
+    //case darle_un_sape
 }
 
 extension ControladorGeneral {
@@ -23,12 +23,13 @@ extension ControladorGeneral {
         
         switch (comando as! ComandosTamagotchi) {
             case.darle_un_dulce:
-                entretener()
+                feliz()
                 alimentar()
             
-            case .darle_un_sape:
+            /*case .darle_un_sape:
                 dormir()
-                enojado()
+                enojado()*/
+            
             default:
                 print("no es un comando")
         }
