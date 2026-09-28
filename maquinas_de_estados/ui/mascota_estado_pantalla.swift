@@ -34,15 +34,15 @@ struct MascotaEstado: View {
             
             case .Comiendo:
                 Rectangle().foregroundStyle(Color.orange)
-            
-            case .Dormido:
-                Rectangle().foregroundStyle(Color.black)
 
             case .Muerto:
                 Text("ESTA MUERTOOOOO").fontWidth(.expanded).fontWeight(.heavy)
             
-        case .Paseando:
-            Rectangle().foregroundStyle(Color.brown)
+            case .Dormido:
+                Rectangle().foregroundStyle(Color.black)
+            
+            case .Paseando:
+                Rectangle().foregroundStyle(Color.brown)
             
             default :
                 Text("Nose")

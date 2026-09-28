@@ -94,6 +94,7 @@ class ControladorGeneral{
         }
         else if (tamagotchi.hambre >= 100 || tamagotchi.cansancio >= 100){
             estado = .Muerto
+            tamagotchi.esta_vivo = false
         }
         
         /*switch(estado){
