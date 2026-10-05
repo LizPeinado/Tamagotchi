@@ -10,7 +10,7 @@ import Foundation
 class ControladorGeneral{
     var tamagotchi: Tamagotchi
     
-    var estado: EstadosTamagotchi = .Neutro
+    var estado: EstadosTamagotchi = .Feliz
     
     init(tamagotchi_a_cargar: Tamagotchi? = nil){
         if let tamagotchi_a_cargar = tamagotchi_a_cargar{
@@ -77,62 +77,26 @@ class ControladorGeneral{
         else if ((tamagotchi.hambre >= 41 || tamagotchi.cansancio >= 41) && (tamagotchi.hambre == 59 || tamagotchi.cansancio == 59)){
             estado = .Neutro
         }
+        else if (tamagotchi.hambre >= 100 || tamagotchi.cansancio >= 100){
+            estado = .Muerto
+            tamagotchi.esta_vivo = false
+        }
         else if tamagotchi.aburrido >= 41 && tamagotchi.aburrido <= 60{
             estado = .Aburrido
         }
         else if ((tamagotchi.hambre >= 60 || tamagotchi.cansancio >= 60 || tamagotchi.aburrido >= 60) && (tamagotchi.hambre <= 95 || tamagotchi.cansancio <= 95 || tamagotchi.aburrido <= 95)){
             estado = .Enojado
         }
-        else if tamagotchi.hambre > 95 && tamagotchi.hambre <= 100{
+        /*else if tamagotchi.hambre > 95 && tamagotchi.hambre <= 100{
             estado = .Comiendo
-        }
-        else if tamagotchi.cansancio > 95 && tamagotchi.cansancio <= 100{
-            estado = .Dormido
-        }
-        else if tamagotchi.aburrido > 95 && tamagotchi.aburrido <= 100{
-            estado = .Paseando
-        }
-        else if (tamagotchi.hambre >= 100 || tamagotchi.cansancio >= 100){
-            estado = .Muerto
-            tamagotchi.esta_vivo = false
-        }
-        
-        /*switch(estado){
-            case.Feliz:
-                if tamagotchi.hambre <= 40 && tamagotchi.cansancio <= 40 {
-                    estado = .Feliz
-                }
-            case .Neutro:
-                if tamagotchi.hambre >= 41 && tamagotchi.cansancio >= 41 {
-                    estado = .Neutro
-                }
-            case .Aburrido:
-                if tamagotchi.aburrido >= 41 {
-                    estado = .Aburrido
-                }
-            case .Enojado:
-                if tamagotchi.hambre >= 60 || tamagotchi.cansancio >= 60 || tamagotchi.aburrido >= 60 {
-                    estado = .Enojado
-                }
-            case .Comiendo:
-                if tamagotchi.hambre > 95{
-                    estado = .Comiendo
-                }
-            case .Dormido:
-                if tamagotchi.cansancio > 95{
-                    estado = .Dormido
-            }
-            case .Paseando:
-                if tamagotchi.aburrido > 95{
-                    estado = .Paseando
-                }
-            case .Muerto:
-                if tamagotchi.hambre >= 100 || tamagotchi.cansancio >= 100 {
-                    estado = .Muerto
-                }
-            default :
-                return
         }*/
+        /*else if tamagotchi.cansancio > 95 && tamagotchi.cansancio <= 100{
+            estado = .Dormido
+        }*/
+        /*else if tamagotchi.aburrido > 95 && tamagotchi.aburrido <= 100{
+            estado = .Paseando
+        }*/
+        
     }
     
     //-----------------------------------------------------------------------------------------------------

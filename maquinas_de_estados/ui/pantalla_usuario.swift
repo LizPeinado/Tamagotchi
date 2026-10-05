@@ -18,20 +18,28 @@ struct PantallaInicial: View {
         //matarlo
         //revivirlo
        
-        Text("Lo revivimos: \(vivo)")
+        //Text("Lo revivimos: \(vivo)")
         /*Button("matar"){
             controlador_tamagotchi.matarlo()
             vivo = "no"
         }*/
         
         Text("Su nombre: \(controlador_tamagotchi.tamagotchi.nombre)")
-        Text("Edad: \(controlador_tamagotchi.tamagotchi.edad)")
+        
+        TextField("Place holder: Nombre de tu tamagotchi", text: $nombre_nuevo)
+        Button("cambiar nombre"){
+            //controlador_tamagotchi.tamagotchi.esta_vivo = true
+            controlador_tamagotchi.camiar_nombre(nombre_nuevo)
+        }
+        
+        //Text("Edad: \(controlador_tamagotchi.tamagotchi.edad)")
         //Text("Esta vivo: \(controlador_tamagotchi.tamagotchi.esta_vivo)")
         
-        Text("Hambre: \(controlador_tamagotchi.tamagotchi.hambre)")
-        Text("Cansancio: \(controlador_tamagotchi.tamagotchi.cansancio)")
-        Text("Aburrimiento: \(controlador_tamagotchi.tamagotchi.aburrido)")
-        
+        HStack(){
+            Text("Hambre: \(controlador_tamagotchi.tamagotchi.hambre)")
+            Text("Cansancio: \(controlador_tamagotchi.tamagotchi.cansancio)")
+            Text("Aburrimiento: \(controlador_tamagotchi.tamagotchi.aburrido)")
+        }
         
         MascotaEstado()
 
@@ -41,36 +49,42 @@ struct PantallaInicial: View {
             Text("Esta muerto :(")
         }
         
-        TextField("Place holder: Nombre de tu tamagotchi", text: $nombre_nuevo)
-        Button("cambiar nombre"){
-            //controlador_tamagotchi.tamagotchi.esta_vivo = true
-            controlador_tamagotchi.camiar_nombre(nombre_nuevo)
-        }
-        
-        HStack{
-            Button("Dale con la pala"){
-                controlador_tamagotchi.matarlo()
-                vivo = "no"
-            }
-            
-            Spacer()
-            
-            Button("Resuitar") {
-                controlador_tamagotchi.revivirlo()
-                vivo = "si"
-            }
-        }
         
         Button("Actualizar tamagotchi"){
             controlador_tamagotchi.actualizar_medidores()
         }
         
-        Button("Alimentar"){
-            controlador_tamagotchi.alimentar()
+        HStack{
+            /*Button("Dale con la pala"){
+                controlador_tamagotchi.matarlo()
+                vivo = "no"
+            }*/
+            Button("Pasear"){
+                controlador_tamagotchi.pasear()
+            }
+            
+            Spacer()
+            
+            Button("Alimentar"){
+                controlador_tamagotchi.alimentar()
+            }
+            
+            Spacer()
+            
+            Button("Dormir"){
+                controlador_tamagotchi.dormir()
+            }
+        }
+        
+        Button("Resuitar") {
+            controlador_tamagotchi.revivirlo()
+            vivo = "si"
         }
         
         Button("Darle un dulce"){
-            let comando = ComandosTamagotchi.darle_un_dulce
+            controlador_tamagotchi.procesar_comando(ComandosTamagotchi.darle_un_dulce)
+            
+            
         }
     }
 }
