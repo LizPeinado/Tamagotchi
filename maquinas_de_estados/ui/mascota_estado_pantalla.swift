@@ -22,38 +22,37 @@ struct MascotaEstado: View {
         switch mascota.estado {
             case .Neutro:
                 //Rectangle().foregroundStyle(Color.gray)
-            Image("Neutro").resizable().scaledToFit().frame(width: 300, height: 300)
+            Image("Neutro").resizable().scaledToFit().frame(width: 300, height: 300).cornerRadius(100)
             case .Feliz:
                 //Rectangle().foregroundStyle(Color.green)
-            Image("Feliz").resizable().scaledToFit().frame(width: 300, height: 300)
+            Image("Feliz").resizable().scaledToFit().frame(width: 300, height: 300).cornerRadius(100)
             
             case .Aburrido:
                     //Rectangle().foregroundStyle(Color.purple)
-                Image("Neutro").resizable().scaledToFit().frame(width: 300, height: 300)
+                Image("Neutro").resizable().scaledToFit().frame(width: 300, height: 300).cornerRadius(100)
             
             case .Enojado:
                 //Rectangle().foregroundStyle(Color.red)
-                Image("Enojado").resizable().scaledToFit().frame(width: 300, height: 300)
+                Image("Enojado").resizable().scaledToFit().frame(width: 300, height: 300).cornerRadius(100)
             
             case .Comiendo:
-                Image("Comer").resizable().scaledToFit().frame(width: 300, height: 300)
+                Image("Comer").resizable().scaledToFit().frame(width: 300, height: 300).cornerRadius(100)
 
             case .Muerto:
-            Image("Muerto").resizable().scaledToFit().frame(width: 300, height: 300)
-                Text("ESTA MUERTOOOOO").fontWidth(.expanded).fontWeight(.heavy)
+                Image("Muerto").resizable().scaledToFit().frame(width: 300, height: 300).cornerRadius(60)
             
             case .Dormido:
                 //Rectangle().foregroundStyle(Color.black)
-                Image("Dormir").resizable().scaledToFit().frame(width: 300, height: 300)
+                Image("Dormir").resizable().scaledToFit().frame(width: 300, height: 300).cornerRadius(100)
             
             case .Paseando:
                 //Rectangle().foregroundStyle(Color.brown)
-                Image("Pasear").resizable().scaledToFit().frame(width: 300, height: 300)
+                Image("Pasear").resizable().scaledToFit().frame(width: 300, height: 300).cornerRadius(60)
             
             default :
                 Text("Nose")
         }
-        Text("El estado de tu mascota es: \(mascota.estado)")
+        Text("\(mascota.estado)").shadow(color: Color.blue, radius: 10).padding(12).background(Color.white).cornerRadius(100).fontWeight(.heavy)
     }
 }
 

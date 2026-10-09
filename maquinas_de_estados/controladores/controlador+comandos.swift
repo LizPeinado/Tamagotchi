@@ -12,11 +12,15 @@ import ARKit
 
 enum ComandosTamagotchi: Comando {
     case darle_un_dulce
-    case darle_un_sape
+    case jugar
 }
 
 extension ControladorGeneral {
+
+    
     func procesar_comando(_ comando: Comando) -> Bool{
+        var tamagotchi: Tamagotchi
+        
         if (!(comando is ComandosTamagotchi)) {
             return false
         }
@@ -25,11 +29,9 @@ extension ControladorGeneral {
             case.darle_un_dulce:
                 alimentar()
                 feliz()
-            case .darle_un_sape:
-                dormir()
-                enojado()
-            
-            
+            case .jugar:
+                actualizar_medidores()
+                pasear()
         }
         return true
     }

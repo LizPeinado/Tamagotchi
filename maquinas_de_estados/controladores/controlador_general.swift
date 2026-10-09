@@ -17,7 +17,7 @@ class ControladorGeneral{
             self.tamagotchi = tamagotchi_a_cargar
         }
         else{
-            self.tamagotchi = Tamagotchi(nombre: "Fih", esta_vivo: true, edad: 0, hambre: 0, cansancio: 0, aburrido: 0)
+            self.tamagotchi = Tamagotchi(nombre: "", esta_vivo: true, edad: 0, hambre: 0, cansancio: 0, aburrido: 0)
         }
     }
     
